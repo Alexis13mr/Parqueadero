@@ -42,5 +42,56 @@ namespace Parqueadero
             }
             
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btIn_Click(object sender, EventArgs e)
+        {
+            if (pnlIn.Visible)
+            {
+                pnlIn.Visible = false;
+                cleanpnl();
+            }
+            else
+            {
+                pnlIn.Visible = true;
+            }
+        }
+
+        private void rbmot_CheckedChanged(object sender, EventArgs e)
+        {
+            if (lbCasc.Enabled)
+            {
+                lbCasc.Enabled = false;
+                cbcsc.Enabled = false;                
+            }
+            else
+            {
+                lbCasc.Enabled = true;
+                cbcsc.Enabled = true;
+            }
+        }
+
+        private void btingr_Click(object sender, EventArgs e)
+        {
+            if (txplac.Text.Length==6|| txplac.Text.Length == 5)
+            {
+                cleanpnl();
+            }
+        }
+
+        private void cleanpnl()
+        {
+            txplac.Text = "";
+            rbcar.Checked = false;
+            rbmot.Checked = false;
+            rbMes.Checked = false;
+            rbhor.Checked = false;
+            rbDia.Checked = false;
+            cbcsc.SelectedIndex = -1;
+        }
     }
 }
