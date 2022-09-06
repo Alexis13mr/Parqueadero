@@ -37,6 +37,7 @@ namespace Parqueadero
             this.tmtime = new System.Windows.Forms.Timer(this.components);
             this.btTime = new System.Windows.Forms.Button();
             this.pnlIn = new System.Windows.Forms.Panel();
+            this.cbcsc = new System.Windows.Forms.ComboBox();
             this.btingr = new System.Windows.Forms.Button();
             this.gbing = new System.Windows.Forms.GroupBox();
             this.lbtin = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@ namespace Parqueadero
             this.administradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tarifasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cbcsc = new System.Windows.Forms.ComboBox();
             this.pnlIn.SuspendLayout();
             this.gbing.SuspendLayout();
             this.gbve.SuspendLayout();
@@ -98,7 +98,7 @@ namespace Parqueadero
             // 
             this.lbdate.AutoSize = true;
             this.lbdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbdate.Location = new System.Drawing.Point(529, 24);
+            this.lbdate.Location = new System.Drawing.Point(147, 327);
             this.lbdate.Name = "lbdate";
             this.lbdate.Size = new System.Drawing.Size(0, 17);
             this.lbdate.TabIndex = 3;
@@ -110,7 +110,7 @@ namespace Parqueadero
             // 
             // btTime
             // 
-            this.btTime.Location = new System.Drawing.Point(448, 21);
+            this.btTime.Location = new System.Drawing.Point(66, 324);
             this.btTime.Name = "btTime";
             this.btTime.Size = new System.Drawing.Size(75, 23);
             this.btTime.TabIndex = 4;
@@ -134,6 +134,17 @@ namespace Parqueadero
             this.pnlIn.Size = new System.Drawing.Size(412, 167);
             this.pnlIn.TabIndex = 5;
             this.pnlIn.Visible = false;
+            // 
+            // cbcsc
+            // 
+            this.cbcsc.FormattingEnabled = true;
+            this.cbcsc.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cbcsc.Location = new System.Drawing.Point(64, 66);
+            this.cbcsc.Name = "cbcsc";
+            this.cbcsc.Size = new System.Drawing.Size(36, 21);
+            this.cbcsc.TabIndex = 7;
             // 
             // btingr
             // 
@@ -303,7 +314,7 @@ namespace Parqueadero
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(725, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(454, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -336,22 +347,11 @@ namespace Parqueadero
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // cbcsc
-            // 
-            this.cbcsc.FormattingEnabled = true;
-            this.cbcsc.Items.AddRange(new object[] {
-            "1",
-            "2"});
-            this.cbcsc.Location = new System.Drawing.Point(64, 66);
-            this.cbcsc.Name = "cbcsc";
-            this.cbcsc.Size = new System.Drawing.Size(36, 21);
-            this.cbcsc.TabIndex = 7;
-            // 
             // MainW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(725, 445);
+            this.ClientSize = new System.Drawing.Size(454, 362);
             this.Controls.Add(this.pnlIn);
             this.Controls.Add(this.btTime);
             this.Controls.Add(this.lbdate);
