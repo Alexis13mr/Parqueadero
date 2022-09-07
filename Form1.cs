@@ -79,6 +79,22 @@ namespace Parqueadero
         {
             if (txplac.Text.Length==6|| txplac.Text.Length == 5)
             {
+                string typeI, typeV;
+                if (rbDia.Checked)
+                {
+                    typeI = "DÍA";
+                }
+                else if (rbhor.Checked)
+                {
+                    typeI = "HORA";
+                }else typeI = "MES";
+                if (rbmot.Checked)
+                {
+                    typeV = "MOTO";
+                }
+                else typeV = "CARRO";
+                CDatos.Datos datin = new CDatos.Datos();
+                datin.ingreso(txplac.Text.ToUpper(),0,typeI,typeV,lbdate.Text, lbdate.Text, 0,0);
                 cleanpnl();
             }
         }
