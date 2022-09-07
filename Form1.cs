@@ -109,5 +109,15 @@ namespace Parqueadero
             rbDia.Checked = false;
             cbcsc.SelectedIndex = -1;
         }
+
+        private void btSal_Click(object sender, EventArgs e)
+        {
+            if (txplac.Text != "")
+            {
+                int hour;
+
+                MessageBox.Show("El vehiculo con placa "+txplac.Text.ToUpper()+" lleva "+hour+,"Aviso");
+            }
+        }
     }
 }

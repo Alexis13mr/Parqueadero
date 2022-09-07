@@ -22,12 +22,17 @@ namespace Parqueadero.CDatos
             comnd.Parameters.AddWithValue("@Client_Id", cli_Id);
             comnd.Parameters.AddWithValue("@Tip_Ing", tipIng);
             comnd.Parameters.AddWithValue("@Tip_Veh", tipVeh);
-            comnd.Parameters.AddWithValue("@Fech_Ing", DateTime.Now.ToString("dd-MM-AAAA HH:mm:ss"));
-            comnd.Parameters.AddWithValue("@Fech_Sal", DateTime.MaxValue.ToString("dd-MM-AAAA HH:mm:ss"));
+            comnd.Parameters.AddWithValue("@Fech_Ing", DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"));
+            comnd.Parameters.AddWithValue("@Fech_Sal", DateTime.MaxValue.ToString("dd-MM-yyyy HH:mm:ss"));
             comnd.Parameters.AddWithValue("@Valor", val);
             comnd.Parameters.AddWithValue("@Est_Pay", estpay);
             comnd.ExecuteNonQuery();
             comnd.Parameters.Clear();
+        }
+        public void consulta(string placa)
+        {
+
+
         }
     }    
 }
