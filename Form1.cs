@@ -15,7 +15,10 @@ namespace Parqueadero
         public MainW()
         {
             InitializeComponent();
+            DataTable datos = da.consultat();
+            dgsal.DataSource = datos.DefaultView;
         }
+        CDatos.Datos da = new CDatos.Datos();
 
         private void MainW_Load(object sender, EventArgs e)
         {            
@@ -114,10 +117,18 @@ namespace Parqueadero
         {
             if (txplac.Text != "")
             {
-                int hour;
+                int hour=0;
+                
 
-                MessageBox.Show("El vehiculo con placa "+txplac.Text.ToUpper()+" lleva "+hour+,"Aviso");
+                DataTable datos = da.consultind(txplac.Text);
+                dgsal.DataSource = datos.DefaultView;
+                //MessageBox.Show("El vehiculo con placa "+txplac.Text.ToUpper()+" lleva "+hour+,"Aviso");
             }
+        }
+
+        private void btconsult_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

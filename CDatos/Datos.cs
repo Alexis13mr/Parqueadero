@@ -12,6 +12,7 @@ namespace Parqueadero.CDatos
     {
         Conexion con = new Conexion();
         SqlCommand comnd = new SqlCommand();
+        
 
         public void ingreso(string placa, int cli_Id, string tipIng, string tipVeh, string fecIn, string fecSal, int val, int estpay)
         {
@@ -28,11 +29,32 @@ namespace Parqueadero.CDatos
             comnd.Parameters.AddWithValue("@Est_Pay", estpay);
             comnd.ExecuteNonQuery();
             comnd.Parameters.Clear();
+            con.desconectar();
         }
-        public void consulta(string placa)
+        public DataTable consultat()
         {
-
-
+            comnd.Connection = con.conectar();
+            comnd.CommandText = "Consulta_General";
+            comnd.CommandType = CommandType.StoredProcedure;
+            SqlDataReader dr = comnd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            con.desconectar();
+            return dt;
         }
+        public DataTable consultind(string placa)
+        {
+            comnd.Connection = con.conectar();
+            comnd.CommandText = "Consulta_Ingreso";
+            comnd.CommandType = CommandType.StoredProcedure;
+            comnd.Parameters.AddWithValue("@placa", placa);
+            SqlDataReader dr = comnd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            comnd.Parameters.Clear();
+            con.desconectar();
+            return dt;
+        }
+
     }    
 }
