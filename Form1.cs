@@ -12,11 +12,13 @@ namespace Parqueadero
 {
     public partial class MainW : Form
     {
+        bool horsal = false;
+        int dia, hora, minut;
+        TimeSpan t;
         public MainW()
         {
             InitializeComponent();
-            DataTable datos = da.consultat();
-            dgsal.DataSource = datos.DefaultView;
+            actgrid();
         }
         CDatos.Datos da = new CDatos.Datos();
 
@@ -27,6 +29,10 @@ namespace Parqueadero
         private void tmtime_Tick(object sender, EventArgs e)
         {
             lbdate.Text = DateTime.Now.ToString();
+            if (horsal)
+            {
+                lbsalhorsal.Text = DateTime.Now.ToString();
+            }
         }
 
         private void btTime_Click(object sender, EventArgs e)
@@ -99,6 +105,7 @@ namespace Parqueadero
                 CDatos.Datos datin = new CDatos.Datos();
                 datin.ingreso(txplac.Text.ToUpper(),0,typeI,typeV,lbdate.Text, lbdate.Text, 0,0);
                 cleanpnl();
+                actgrid();
             }
         }
 
@@ -115,20 +122,61 @@ namespace Parqueadero
 
         private void btSal_Click(object sender, EventArgs e)
         {
-            if (txplac.Text != "")
-            {
-                int hour=0;
-                
+            
+        }
 
-                DataTable datos = da.consultind(txplac.Text);
-                dgsal.DataSource = datos.DefaultView;
-                //MessageBox.Show("El vehiculo con placa "+txplac.Text.ToUpper()+" lleva "+hour+,"Aviso");
-            }
+        private void dgsal_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int fila = e.RowIndex;
+            txplac.Text = dgsal.Rows[e.RowIndex].Cells[1].Value.ToString();
+        }
+
+        private void dgsal_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int fila = e.RowIndex;
+            txplac.Text = dgsal.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
 
         private void btconsult_Click(object sender, EventArgs e)
         {
+            if (txplac.Text != "")
+            {
+                string tiemp;
+                DataTable datos = da.consultind(txplac.Text);
+                lbsalpla.Text= datos.Rows[0][1].ToString();
+                lbsalhoring.Text = datos.Rows[0][5].ToString();
+                tmtime.Enabled = true;
+                horsal = true;
+                lbsaltipveh.Text = datos.Rows[0][4].ToString();
+                lbsaltiping.Text = datos.Rows[0][3].ToString();
+                
+                t = DateTime.Now - Convert.ToDateTime(lbsalhoring.Text);
+                calcti(lbsaltiping.Text);
+                //if (lbsaltiping.Text=="HORA")
+                //{
+                //    lbsaltiemp.Text =(Convert.ToInt32(t.TotalSeconds)).ToString();
+                    
+                //}
+                //MessageBox.Show("El vehiculo con placa " + txplac.Text.ToUpper() + " lleva " + hour +, "Aviso");
+            }
+        }
+        private void calcti(string tipo)
+        {
 
+            if (tipo=="HORA")
+            {
+                hora = Convert.ToInt32(t.TotalSeconds) / 3600;
+                lbsaltiemp.Text = hora.ToString()+" horas";
+                if (hora==0)
+                {
+                    lbsaltar.Text = "1000$";
+                }else lbsaltar.Text = (hora * 1000).ToString() + "$";
+            }
+        }
+        private void actgrid()
+        {
+            DataTable datos = da.consultat();
+            dgsal.DataSource = datos.DefaultView;
         }
     }
 }
