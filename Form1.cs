@@ -22,6 +22,7 @@ namespace Parqueadero
         }
         CDatos.Datos da = new CDatos.Datos();
         CNeg.cNeg dat = new CNeg.cNeg();
+        IngCli client = new IngCli();
 
         private void MainW_Load(object sender, EventArgs e)
         {            
@@ -68,7 +69,8 @@ namespace Parqueadero
         {
             if (txplac.Text.Length==6|| txplac.Text.Length == 5)
             {
-                string typeI, typeV;
+                string typeI="", typeV;
+                CDatos.Datos datin = new CDatos.Datos();
                 if (rbDia.Checked)
                 {
                     typeI = "DÍA";
@@ -76,14 +78,27 @@ namespace Parqueadero
                 else if (rbhor.Checked)
                 {
                     typeI = "HORA";
-                }else typeI = "MES";
+                }
+                else if (rbMes.Checked)
+                {
+                    typeI = "MES";                    
+                } 
                 if (rbmot.Checked)
                 {
                     typeV = "MOTO";
                 }
                 else typeV = "CARRO";
-                CDatos.Datos datin = new CDatos.Datos();
-                datin.ingreso(txplac.Text.ToUpper(),0,typeI,typeV,lbdate.Text, lbdate.Text, 0,0);
+
+                if (typeI!= "MES")
+                {
+                    datin.ingreso(txplac.Text.ToUpper(), 0, typeI, typeV, lbdate.Text, lbdate.Text, 0, 0);
+                }
+                else
+                {
+
+                }
+                
+                
                 cleanpnl();
                 actgrid();
             }
@@ -126,6 +141,14 @@ namespace Parqueadero
         {
             int fila = e.RowIndex;
             txplac.Text = dgsal.Rows[e.RowIndex].Cells[1].Value.ToString();
+        }
+
+        private void rbMes_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbMes.Checked)
+            {
+                client.ShowDialog();
+            }
         }
 
         private void btconsult_Click(object sender, EventArgs e)

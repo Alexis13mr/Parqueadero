@@ -244,6 +244,7 @@ namespace Parqueadero
             this.rbMes.TabStop = true;
             this.rbMes.Text = "X Mes";
             this.rbMes.UseVisualStyleBackColor = true;
+            this.rbMes.CheckedChanged += new System.EventHandler(this.rbMes_CheckedChanged);
             // 
             // gbve
             // 

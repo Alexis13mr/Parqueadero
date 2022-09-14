@@ -93,5 +93,17 @@ namespace Parqueadero.CDatos
             con.desconectar();
         }
 
+        public DataTable consultacli()
+        {
+            comnd.Connection = con.conectar();
+            comnd.CommandText = "Consulta_Cliente";
+            comnd.CommandType = CommandType.StoredProcedure;
+            SqlDataReader dr = comnd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            con.desconectar();
+            return dt;
+        }
+
     }    
 }
