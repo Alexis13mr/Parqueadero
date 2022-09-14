@@ -12,8 +12,8 @@ namespace Parqueadero
 {
     public partial class MainW : Form
     {
-        bool horsal = false;
-        int dia, hora, minut;
+        bool consulta = false;
+        int dia, hora, i,tarfinal;
         TimeSpan t;
         public MainW()
         {
@@ -29,11 +29,13 @@ namespace Parqueadero
 
         private void tmtime_Tick(object sender, EventArgs e)
         {
+            i++;
             lbdate.Text = DateTime.Now.ToString();
-            if (horsal)
-            {
-                lbsalhorsal.Text = DateTime.Now.ToString();
-            }
+            
+            //if (horsal)
+            //{
+            //    lbsalhorsal.Text = DateTime.Now.ToString();
+            //}
         }
 
         
@@ -99,7 +101,19 @@ namespace Parqueadero
 
         private void btSal_Click(object sender, EventArgs e)
         {
-            
+            if (consulta && i<60)
+            {
+                if (MessageBox.Show(("El valor a pagar es de " + lbsaltar.Text + ". Presione 'Si' si desea continuar o 'No' para cancelar."),"", MessageBoxButtons.YesNo)==DialogResult.Yes)
+                {
+                    if (i < 60)
+                    {                                               
+                        dat.exit(lbsalpla.Text, DateTime.Now.ToString(), tarfinal);
+                        actgrid();
+                    }
+                    else MessageBox.Show("Debe consultar nuevamente para actualizar el valor.");
+                    
+                }
+            }
         }
 
         private void dgsal_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -118,17 +132,17 @@ namespace Parqueadero
         {
             if (txplac.Text != "")
             {
-                string tiemp;
+                i = 0;
                 DataTable datos = da.consultind(txplac.Text);
                 lbsalpla.Text= datos.Rows[0][1].ToString();
                 lbsalhoring.Text = datos.Rows[0][5].ToString();
                 tmtime.Enabled = true;
-                horsal = true;
                 lbsaltipveh.Text = datos.Rows[0][4].ToString();
                 lbsaltiping.Text = datos.Rows[0][3].ToString();
                 
                 t = DateTime.Now - Convert.ToDateTime(lbsalhoring.Text);
                 calcti(lbsaltiping.Text, lbsaltipveh.Text);
+                consulta = true;
                 //if (lbsaltiping.Text=="HORA")
                 //{
                 //    lbsaltiemp.Text =(Convert.ToInt32(t.TotalSeconds)).ToString();
@@ -151,8 +165,14 @@ namespace Parqueadero
                 lbsaltiemp.Text = hora.ToString()+" horas";
                 if (hora==0)
                 {
-                    lbsaltar.Text = tarifa +"$";
-                }else lbsaltar.Text = (hora *tarifa).ToString() + "$";
+                    tarfinal = tarifa;
+                    lbsaltar.Text = tarfinal + "$";
+                }
+                else
+                {
+                    tarfinal= hora * tarifa ;
+                    lbsaltar.Text = tarfinal + "$";
+                } 
             }
             else if (tipoi == "DÍA")
             {
@@ -160,9 +180,14 @@ namespace Parqueadero
                 lbsaltiemp.Text = dia.ToString() + " días";
                 if (dia == 0)
                 {
-                    lbsaltar.Text = tarifa + "$";
+                    tarfinal= tarifa ;
+                    lbsaltar.Text = tarfinal + "$";
                 }
-                else lbsaltar.Text = (dia * tarifa).ToString() + "$";
+                else
+                {
+                    tarfinal= dia * tarifa ;
+                    lbsaltar.Text = tarfinal + "$";
+                } 
             }
         }
         private void actgrid()

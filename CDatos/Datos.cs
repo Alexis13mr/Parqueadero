@@ -80,5 +80,18 @@ namespace Parqueadero.CDatos
             }            
         }
 
+        public void salida(string placa, string fecha, int tarifa)
+        {
+            comnd.Connection = con.conectar();
+            comnd.CommandText = "Salida";
+            comnd.CommandType = CommandType.StoredProcedure;
+            comnd.Parameters.AddWithValue("@placa", placa);
+            comnd.Parameters.AddWithValue("@fecha", fecha);
+            comnd.Parameters.AddWithValue("@tarifa", tarifa);
+            comnd.ExecuteNonQuery();
+            comnd.Parameters.Clear();
+            con.desconectar();
+        }
+
     }    
 }

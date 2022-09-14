@@ -15,5 +15,9 @@ namespace Parqueadero.CNeg
             int val=da.tarifaind(tiping, tipveh);            
             return val;
         }
+        public void exit(string placa, string fecha, int tarifa)
+        {
+            da.salida(placa, fecha, tarifa);
+        }
     }
 }

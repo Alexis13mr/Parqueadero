@@ -115,6 +115,7 @@ namespace Parqueadero
             // tmtime
             // 
             this.tmtime.Enabled = true;
+            this.tmtime.Interval = 1000;
             this.tmtime.Tick += new System.EventHandler(this.tmtime_Tick);
             // 
             // pnlIn
@@ -477,7 +478,6 @@ namespace Parqueadero
             this.lbsalhorsal.Name = "lbsalhorsal";
             this.lbsalhorsal.Size = new System.Drawing.Size(0, 13);
             this.lbsalhorsal.TabIndex = 7;
-            this.lbsalhorsal.Visible = false;
             // 
             // lbsalhoring
             // 
