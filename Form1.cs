@@ -27,11 +27,7 @@ namespace Parqueadero
         IngCli client = new IngCli();
         string mesced = "N/D";
 
-        public void svmes(string ced)
-        {
-            mesced = ced;            
-        }
-
+        
         private void MainW_Load(object sender, EventArgs e)
         {            
         }
@@ -105,6 +101,7 @@ namespace Parqueadero
                 }
                 else
                 {
+                    mesced = dat.Cedula;
                     
                     if (mesced != "N/D")
                     {
@@ -131,6 +128,14 @@ namespace Parqueadero
             rbhor.Checked = false;
             rbDia.Checked = false;
             cbcsc.SelectedIndex = -1;
+            consulta = false;
+
+            lbsalpla.Text = "";
+            lbsalhoring.Text = "";
+            lbsaltipveh.Text = "";
+            lbsaltiping.Text = "";
+            lbsaltiemp.Text = "";
+            lbsaltar.Text = "";
         }
 
         private void btSal_Click(object sender, EventArgs e)
@@ -143,6 +148,7 @@ namespace Parqueadero
                     {                                               
                         dat.exit(lbsalpla.Text, DateTime.Now.ToString(), tarfinal);
                         actgrid();
+                        cleanpnl();
                     }
                     else MessageBox.Show("Debe consultar nuevamente para actualizar el valor.");
                     

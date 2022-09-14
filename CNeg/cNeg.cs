@@ -10,7 +10,10 @@ namespace Parqueadero.CNeg
     class cNeg
     {
         CDatos.Datos da = new CDatos.Datos();
-        
+
+        string cedula;
+
+        public string Cedula { get => cedula; set => cedula = value; }
 
         public int Tarifaing(string tiping, string tipveh)
         {
