@@ -15,6 +15,8 @@ namespace Parqueadero
         bool consulta = false;
         int dia, hora, i,tarfinal;
         TimeSpan t;
+        
+
         public MainW()
         {
             InitializeComponent();
@@ -23,6 +25,12 @@ namespace Parqueadero
         CDatos.Datos da = new CDatos.Datos();
         CNeg.cNeg dat = new CNeg.cNeg();
         IngCli client = new IngCli();
+        string mesced = "N/D";
+
+        public void svmes(string ced)
+        {
+            mesced = ced;            
+        }
 
         private void MainW_Load(object sender, EventArgs e)
         {            
@@ -91,16 +99,27 @@ namespace Parqueadero
 
                 if (typeI!= "MES")
                 {
-                    datin.ingreso(txplac.Text.ToUpper(), 0, typeI, typeV, lbdate.Text, lbdate.Text, 0, 0);
+                    datin.ingreso(txplac.Text.ToUpper(),"0", typeI, typeV, DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), DateTime.MaxValue.ToString("dd-MM-yyyy HH:mm:ss"), 0, 0);
+                    cleanpnl();
+                    actgrid();
                 }
                 else
                 {
-
+                    
+                    if (mesced != "N/D")
+                    {
+                        DateTime fec = DateTime.Now.AddDays(30);
+                        datin.ingreso(txplac.Text.ToUpper(), mesced, typeI, typeV, DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), fec.ToString("dd-MM-yyyy HH:mm:ss"), tarfinal, 1);
+                    }
+                    else if (MessageBox.Show(("Seleccione una cedula para continuar, o presione No para cancelar"), "Aviso", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        client.ShowDialog();
+                    }
+                    else cleanpnl();
                 }
+                //@placa, @Client_Id, @Tip_Ing, @Tip_Veh, @Fech_Ing, @Fech_Sal, @Valor, @Est_Pay
+
                 
-                
-                cleanpnl();
-                actgrid();
             }
         }
         private void cleanpnl()
@@ -210,7 +229,12 @@ namespace Parqueadero
                 {
                     tarfinal= dia * tarifa ;
                     lbsaltar.Text = tarfinal + "$";
-                } 
+                }
+            }
+            else if (tipoi == "MES")
+            {
+                tarfinal = tarifa;
+                lbsaltar.Text = tarfinal.ToString();
             }
         }
         private void actgrid()
