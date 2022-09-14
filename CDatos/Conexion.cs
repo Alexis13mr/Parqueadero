@@ -22,7 +22,7 @@ namespace Parqueadero.CDatos
                 return conex;
             }
             catch (Exception e)
-            {
+            {   
                 return null;
             }
 
