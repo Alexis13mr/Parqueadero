@@ -27,5 +27,10 @@ namespace Parqueadero.CNeg
             dt=da.consultacli();
             return dt;
         }
+        
+        public void ingrCl(string ced, string nomb, string tel)
+        {
+            da.ingCliente(ced, nomb, tel);
+        }
     }
 }

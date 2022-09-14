@@ -139,6 +139,7 @@ namespace Parqueadero
             this.btsave.TabIndex = 9;
             this.btsave.Text = "Guardar y seleccionar";
             this.btsave.UseVisualStyleBackColor = true;
+            this.btsave.Click += new System.EventHandler(this.btsave_Click);
             // 
             // IngCli
             // 
@@ -157,6 +158,7 @@ namespace Parqueadero
             this.Controls.Add(this.dgcli);
             this.Name = "IngCli";
             this.Text = "IngCli";
+            this.Load += new System.EventHandler(this.IngCli_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgcli)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

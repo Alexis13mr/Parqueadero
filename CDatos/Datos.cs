@@ -104,6 +104,17 @@ namespace Parqueadero.CDatos
             con.desconectar();
             return dt;
         }
-
+        public void ingCliente(string ced, string nomb, string tel)
+        {
+            comnd.Connection = con.conectar();
+            comnd.CommandText = "Ingresar_Cliente";
+            comnd.CommandType = CommandType.StoredProcedure;
+            comnd.Parameters.AddWithValue("@ced", ced);
+            comnd.Parameters.AddWithValue("@nomb", nomb);
+            comnd.Parameters.AddWithValue("@telefono", tel);
+            comnd.ExecuteNonQuery();
+            comnd.Parameters.Clear();
+            con.desconectar();
+        }
     }    
 }
