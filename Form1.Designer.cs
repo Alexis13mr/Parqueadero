@@ -65,7 +65,7 @@ namespace Parqueadero
             this.label1 = new System.Windows.Forms.Label();
             this.lbsaltar = new System.Windows.Forms.Label();
             this.lbsaltipveh = new System.Windows.Forms.Label();
-            this.lbsalhorsal = new System.Windows.Forms.Label();
+            this.lbsalced = new System.Windows.Forms.Label();
             this.lbsalhoring = new System.Windows.Forms.Label();
             this.lbsalpla = new System.Windows.Forms.Label();
             this.lbtii4 = new System.Windows.Forms.Label();
@@ -402,7 +402,7 @@ namespace Parqueadero
             this.gbinf.Controls.Add(this.label1);
             this.gbinf.Controls.Add(this.lbsaltar);
             this.gbinf.Controls.Add(this.lbsaltipveh);
-            this.gbinf.Controls.Add(this.lbsalhorsal);
+            this.gbinf.Controls.Add(this.lbsalced);
             this.gbinf.Controls.Add(this.lbsalhoring);
             this.gbinf.Controls.Add(this.lbsalpla);
             this.gbinf.Controls.Add(this.lbtii4);
@@ -472,13 +472,13 @@ namespace Parqueadero
             this.lbsaltipveh.Size = new System.Drawing.Size(0, 13);
             this.lbsaltipveh.TabIndex = 8;
             // 
-            // lbsalhorsal
+            // lbsalced
             // 
-            this.lbsalhorsal.AutoSize = true;
-            this.lbsalhorsal.Location = new System.Drawing.Point(136, 62);
-            this.lbsalhorsal.Name = "lbsalhorsal";
-            this.lbsalhorsal.Size = new System.Drawing.Size(0, 13);
-            this.lbsalhorsal.TabIndex = 7;
+            this.lbsalced.AutoSize = true;
+            this.lbsalced.Location = new System.Drawing.Point(136, 62);
+            this.lbsalced.Name = "lbsalced";
+            this.lbsalced.Size = new System.Drawing.Size(0, 13);
+            this.lbsalced.TabIndex = 7;
             // 
             // lbsalhoring
             // 
@@ -633,7 +633,7 @@ namespace Parqueadero
         private System.Windows.Forms.Button btconsult;
         private System.Windows.Forms.Label lbsaltar;
         private System.Windows.Forms.Label lbsaltipveh;
-        private System.Windows.Forms.Label lbsalhorsal;
+        private System.Windows.Forms.Label lbsalced;
         private System.Windows.Forms.Label lbsalhoring;
         private System.Windows.Forms.Label lbsalpla;
         private System.Windows.Forms.Label lbsaltiemp;

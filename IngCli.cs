@@ -18,14 +18,16 @@ namespace Parqueadero
         }
         int select=-1;
         CNeg.cNeg dat = new CNeg.cNeg();
-        MainW prin = new MainW();
+        
 
         private void btselct_Click(object sender, EventArgs e)
         {
             if (select > -1)
             {
-                prin.Mesced=dgcli.Rows[select].Cells[0].Value.ToString();
-                Dispose();
+                MainW prin = new MainW();
+                
+                prin.svmes(dgcli.Rows[select].Cells[0].Value.ToString());
+                this.Close();
             }
             else MessageBox.Show("Seleccione cliente.","Advertencia");
         }

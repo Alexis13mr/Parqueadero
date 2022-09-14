@@ -15,7 +15,7 @@ namespace Parqueadero
         bool consulta = false;
         int dia, hora, i,tarfinal;
         TimeSpan t;
-        string mesced="N/D";
+        
 
         public MainW()
         {
@@ -25,8 +25,12 @@ namespace Parqueadero
         CDatos.Datos da = new CDatos.Datos();
         CNeg.cNeg dat = new CNeg.cNeg();
         IngCli client = new IngCli();
+        string mesced = "N/D";
 
-        public string Mesced { get => mesced; set => mesced = value; }
+        public void svmes(string ced)
+        {
+            mesced = ced;            
+        }
 
         private void MainW_Load(object sender, EventArgs e)
         {            
@@ -96,9 +100,12 @@ namespace Parqueadero
                 if (typeI!= "MES")
                 {
                     datin.ingreso(txplac.Text.ToUpper(),"0", typeI, typeV, DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), DateTime.MaxValue.ToString("dd-MM-yyyy HH:mm:ss"), 0, 0);
+                    cleanpnl();
+                    actgrid();
                 }
                 else
                 {
+                    
                     if (mesced != "N/D")
                     {
                         DateTime fec = DateTime.Now.AddDays(30);
@@ -109,13 +116,10 @@ namespace Parqueadero
                         client.ShowDialog();
                     }
                     else cleanpnl();
-
-
                 }
                 //@placa, @Client_Id, @Tip_Ing, @Tip_Veh, @Fech_Ing, @Fech_Sal, @Valor, @Est_Pay
 
-                cleanpnl();
-                actgrid();
+                
             }
         }
         private void cleanpnl()
