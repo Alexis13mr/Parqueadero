@@ -32,10 +32,8 @@ namespace Parqueadero
             this.components = new System.ComponentModel.Container();
             this.lbtit = new System.Windows.Forms.Label();
             this.btIn = new System.Windows.Forms.Button();
-            this.btEx = new System.Windows.Forms.Button();
             this.lbdate = new System.Windows.Forms.Label();
             this.tmtime = new System.Windows.Forms.Timer(this.components);
-            this.btTime = new System.Windows.Forms.Button();
             this.pnlIn = new System.Windows.Forms.Panel();
             this.btconsult = new System.Windows.Forms.Button();
             this.btSal = new System.Windows.Forms.Button();
@@ -61,20 +59,21 @@ namespace Parqueadero
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgsal = new System.Windows.Forms.DataGridView();
             this.gbinf = new System.Windows.Forms.GroupBox();
+            this.lbsaltiping = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbsaltiemp = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbsaltar = new System.Windows.Forms.Label();
+            this.lbsaltipveh = new System.Windows.Forms.Label();
+            this.lbsalhorsal = new System.Windows.Forms.Label();
+            this.lbsalhoring = new System.Windows.Forms.Label();
+            this.lbsalpla = new System.Windows.Forms.Label();
             this.lbtii4 = new System.Windows.Forms.Label();
             this.lbtii5 = new System.Windows.Forms.Label();
             this.lbtii3 = new System.Windows.Forms.Label();
             this.lbtii2 = new System.Windows.Forms.Label();
             this.lbtii1 = new System.Windows.Forms.Label();
-            this.lbsalpla = new System.Windows.Forms.Label();
-            this.lbsalhoring = new System.Windows.Forms.Label();
-            this.lbsalhorsal = new System.Windows.Forms.Label();
-            this.lbsaltipveh = new System.Windows.Forms.Label();
-            this.lbsaltar = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbsaltiemp = new System.Windows.Forms.Label();
-            this.lbsaltiping = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbhor = new System.Windows.Forms.Label();
             this.pnlIn.SuspendLayout();
             this.gbing.SuspendLayout();
             this.gbve.SuspendLayout();
@@ -95,24 +94,14 @@ namespace Parqueadero
             // 
             // btIn
             // 
-            this.btIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btIn.Location = new System.Drawing.Point(18, 60);
+            this.btIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btIn.Location = new System.Drawing.Point(264, 145);
             this.btIn.Name = "btIn";
-            this.btIn.Size = new System.Drawing.Size(100, 35);
+            this.btIn.Size = new System.Drawing.Size(76, 28);
             this.btIn.TabIndex = 1;
-            this.btIn.Text = "Ingreso";
+            this.btIn.Text = "Limpiar";
             this.btIn.UseVisualStyleBackColor = true;
             this.btIn.Click += new System.EventHandler(this.btIn_Click);
-            // 
-            // btEx
-            // 
-            this.btEx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEx.Location = new System.Drawing.Point(124, 60);
-            this.btEx.Name = "btEx";
-            this.btEx.Size = new System.Drawing.Size(100, 35);
-            this.btEx.TabIndex = 2;
-            this.btEx.Text = "Salida";
-            this.btEx.UseVisualStyleBackColor = true;
             // 
             // lbdate
             // 
@@ -122,21 +111,11 @@ namespace Parqueadero
             this.lbdate.Name = "lbdate";
             this.lbdate.Size = new System.Drawing.Size(0, 17);
             this.lbdate.TabIndex = 3;
-            this.lbdate.Visible = false;
             // 
             // tmtime
             // 
+            this.tmtime.Enabled = true;
             this.tmtime.Tick += new System.EventHandler(this.tmtime_Tick);
-            // 
-            // btTime
-            // 
-            this.btTime.Location = new System.Drawing.Point(425, 26);
-            this.btTime.Name = "btTime";
-            this.btTime.Size = new System.Drawing.Size(75, 23);
-            this.btTime.TabIndex = 4;
-            this.btTime.Text = "Mostrar hora";
-            this.btTime.UseVisualStyleBackColor = true;
-            this.btTime.Click += new System.EventHandler(this.btTime_Click);
             // 
             // pnlIn
             // 
@@ -145,23 +124,23 @@ namespace Parqueadero
             this.pnlIn.Controls.Add(this.cbcsc);
             this.pnlIn.Controls.Add(this.btingr);
             this.pnlIn.Controls.Add(this.gbing);
+            this.pnlIn.Controls.Add(this.btIn);
             this.pnlIn.Controls.Add(this.gbve);
             this.pnlIn.Controls.Add(this.txplac);
             this.pnlIn.Controls.Add(this.lbCasc);
             this.pnlIn.Controls.Add(this.lbPlaca);
             this.pnlIn.Controls.Add(this.lbting);
-            this.pnlIn.Location = new System.Drawing.Point(18, 122);
-            this.pnlIn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlIn.Location = new System.Drawing.Point(18, 65);
+            this.pnlIn.Margin = new System.Windows.Forms.Padding(2);
             this.pnlIn.Name = "pnlIn";
-            this.pnlIn.Size = new System.Drawing.Size(412, 167);
+            this.pnlIn.Size = new System.Drawing.Size(412, 184);
             this.pnlIn.TabIndex = 5;
-            this.pnlIn.Visible = false;
             // 
             // btconsult
             // 
             this.btconsult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btconsult.Location = new System.Drawing.Point(5, 128);
-            this.btconsult.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btconsult.Location = new System.Drawing.Point(6, 145);
+            this.btconsult.Margin = new System.Windows.Forms.Padding(2);
             this.btconsult.Name = "btconsult";
             this.btconsult.Size = new System.Drawing.Size(95, 28);
             this.btconsult.TabIndex = 14;
@@ -172,8 +151,8 @@ namespace Parqueadero
             // btSal
             // 
             this.btSal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSal.Location = new System.Drawing.Point(210, 128);
-            this.btSal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btSal.Location = new System.Drawing.Point(184, 145);
+            this.btSal.Margin = new System.Windows.Forms.Padding(2);
             this.btSal.Name = "btSal";
             this.btSal.Size = new System.Drawing.Size(75, 28);
             this.btSal.TabIndex = 13;
@@ -196,8 +175,8 @@ namespace Parqueadero
             // btingr
             // 
             this.btingr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btingr.Location = new System.Drawing.Point(130, 128);
-            this.btingr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btingr.Location = new System.Drawing.Point(105, 145);
+            this.btingr.Margin = new System.Windows.Forms.Padding(2);
             this.btingr.Name = "btingr";
             this.btingr.Size = new System.Drawing.Size(75, 28);
             this.btingr.TabIndex = 12;
@@ -212,9 +191,9 @@ namespace Parqueadero
             this.gbing.Controls.Add(this.rbDia);
             this.gbing.Controls.Add(this.rbMes);
             this.gbing.Location = new System.Drawing.Point(313, 20);
-            this.gbing.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbing.Margin = new System.Windows.Forms.Padding(2);
             this.gbing.Name = "gbing";
-            this.gbing.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbing.Padding = new System.Windows.Forms.Padding(2);
             this.gbing.Size = new System.Drawing.Size(80, 102);
             this.gbing.TabIndex = 11;
             this.gbing.TabStop = false;
@@ -233,7 +212,7 @@ namespace Parqueadero
             // 
             this.rbhor.AutoSize = true;
             this.rbhor.Location = new System.Drawing.Point(7, 34);
-            this.rbhor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbhor.Margin = new System.Windows.Forms.Padding(2);
             this.rbhor.Name = "rbhor";
             this.rbhor.Size = new System.Drawing.Size(58, 17);
             this.rbhor.TabIndex = 11;
@@ -245,7 +224,7 @@ namespace Parqueadero
             // 
             this.rbDia.AutoSize = true;
             this.rbDia.Location = new System.Drawing.Point(7, 58);
-            this.rbDia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbDia.Margin = new System.Windows.Forms.Padding(2);
             this.rbDia.Name = "rbDia";
             this.rbDia.Size = new System.Drawing.Size(53, 17);
             this.rbDia.TabIndex = 13;
@@ -257,7 +236,7 @@ namespace Parqueadero
             // 
             this.rbMes.AutoSize = true;
             this.rbMes.Location = new System.Drawing.Point(7, 80);
-            this.rbMes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbMes.Margin = new System.Windows.Forms.Padding(2);
             this.rbMes.Name = "rbMes";
             this.rbMes.Size = new System.Drawing.Size(55, 17);
             this.rbMes.TabIndex = 12;
@@ -271,9 +250,9 @@ namespace Parqueadero
             this.gbve.Controls.Add(this.rbcar);
             this.gbve.Controls.Add(this.rbmot);
             this.gbve.Location = new System.Drawing.Point(210, 20);
-            this.gbve.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbve.Margin = new System.Windows.Forms.Padding(2);
             this.gbve.Name = "gbve";
-            this.gbve.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbve.Padding = new System.Windows.Forms.Padding(2);
             this.gbve.Size = new System.Drawing.Size(79, 81);
             this.gbve.TabIndex = 6;
             this.gbve.TabStop = false;
@@ -292,7 +271,7 @@ namespace Parqueadero
             // 
             this.rbcar.AutoSize = true;
             this.rbcar.Location = new System.Drawing.Point(4, 36);
-            this.rbcar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbcar.Margin = new System.Windows.Forms.Padding(2);
             this.rbcar.Name = "rbcar";
             this.rbcar.Size = new System.Drawing.Size(50, 17);
             this.rbcar.TabIndex = 9;
@@ -304,7 +283,7 @@ namespace Parqueadero
             // 
             this.rbmot.AutoSize = true;
             this.rbmot.Location = new System.Drawing.Point(4, 58);
-            this.rbmot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbmot.Margin = new System.Windows.Forms.Padding(2);
             this.rbmot.Name = "rbmot";
             this.rbmot.Size = new System.Drawing.Size(49, 17);
             this.rbmot.TabIndex = 10;
@@ -316,7 +295,7 @@ namespace Parqueadero
             // txplac
             // 
             this.txplac.Location = new System.Drawing.Point(63, 37);
-            this.txplac.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txplac.Margin = new System.Windows.Forms.Padding(2);
             this.txplac.Name = "txplac";
             this.txplac.Size = new System.Drawing.Size(76, 20);
             this.txplac.TabIndex = 6;
@@ -403,12 +382,12 @@ namespace Parqueadero
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgsal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgsal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgsal.Location = new System.Drawing.Point(18, 293);
-            this.dgsal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgsal.Location = new System.Drawing.Point(18, 265);
+            this.dgsal.Margin = new System.Windows.Forms.Padding(2);
             this.dgsal.Name = "dgsal";
             this.dgsal.RowHeadersWidth = 51;
             this.dgsal.RowTemplate.Height = 24;
-            this.dgsal.Size = new System.Drawing.Size(704, 119);
+            this.dgsal.Size = new System.Drawing.Size(704, 147);
             this.dgsal.TabIndex = 7;
             this.dgsal.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsal_CellContentClick);
             this.dgsal.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsal_CellContentDoubleClick);
@@ -429,13 +408,93 @@ namespace Parqueadero
             this.gbinf.Controls.Add(this.lbtii3);
             this.gbinf.Controls.Add(this.lbtii2);
             this.gbinf.Controls.Add(this.lbtii1);
-            this.gbinf.Location = new System.Drawing.Point(434, 122);
-            this.gbinf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbinf.Location = new System.Drawing.Point(441, 105);
+            this.gbinf.Margin = new System.Windows.Forms.Padding(2);
             this.gbinf.Name = "gbinf";
-            this.gbinf.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbinf.Padding = new System.Windows.Forms.Padding(2);
             this.gbinf.Size = new System.Drawing.Size(288, 144);
             this.gbinf.TabIndex = 8;
             this.gbinf.TabStop = false;
+            // 
+            // lbsaltiping
+            // 
+            this.lbsaltiping.AutoSize = true;
+            this.lbsaltiping.Location = new System.Drawing.Point(136, 35);
+            this.lbsaltiping.Name = "lbsaltiping";
+            this.lbsaltiping.Size = new System.Drawing.Size(0, 13);
+            this.lbsaltiping.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(4, 35);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "TIPO DE INGRESO:";
+            // 
+            // lbsaltiemp
+            // 
+            this.lbsaltiemp.AutoSize = true;
+            this.lbsaltiemp.Location = new System.Drawing.Point(136, 75);
+            this.lbsaltiemp.Name = "lbsaltiemp";
+            this.lbsaltiemp.Size = new System.Drawing.Size(0, 13);
+            this.lbsaltiemp.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(5, 75);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "TIEMPO ACTUAL:";
+            // 
+            // lbsaltar
+            // 
+            this.lbsaltar.AutoSize = true;
+            this.lbsaltar.Location = new System.Drawing.Point(136, 88);
+            this.lbsaltar.Name = "lbsaltar";
+            this.lbsaltar.Size = new System.Drawing.Size(0, 13);
+            this.lbsaltar.TabIndex = 9;
+            // 
+            // lbsaltipveh
+            // 
+            this.lbsaltipveh.AutoSize = true;
+            this.lbsaltipveh.Location = new System.Drawing.Point(136, 22);
+            this.lbsaltipveh.Name = "lbsaltipveh";
+            this.lbsaltipveh.Size = new System.Drawing.Size(0, 13);
+            this.lbsaltipveh.TabIndex = 8;
+            // 
+            // lbsalhorsal
+            // 
+            this.lbsalhorsal.AutoSize = true;
+            this.lbsalhorsal.Location = new System.Drawing.Point(136, 62);
+            this.lbsalhorsal.Name = "lbsalhorsal";
+            this.lbsalhorsal.Size = new System.Drawing.Size(0, 13);
+            this.lbsalhorsal.TabIndex = 7;
+            this.lbsalhorsal.Visible = false;
+            // 
+            // lbsalhoring
+            // 
+            this.lbsalhoring.AutoSize = true;
+            this.lbsalhoring.Location = new System.Drawing.Point(136, 48);
+            this.lbsalhoring.Name = "lbsalhoring";
+            this.lbsalhoring.Size = new System.Drawing.Size(0, 13);
+            this.lbsalhoring.TabIndex = 6;
+            // 
+            // lbsalpla
+            // 
+            this.lbsalpla.AutoSize = true;
+            this.lbsalpla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbsalpla.Location = new System.Drawing.Point(136, 9);
+            this.lbsalpla.Name = "lbsalpla";
+            this.lbsalpla.Size = new System.Drawing.Size(0, 13);
+            this.lbsalpla.TabIndex = 5;
             // 
             // lbtii4
             // 
@@ -444,9 +503,9 @@ namespace Parqueadero
             this.lbtii4.Location = new System.Drawing.Point(4, 22);
             this.lbtii4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbtii4.Name = "lbtii4";
-            this.lbtii4.Size = new System.Drawing.Size(123, 13);
+            this.lbtii4.Size = new System.Drawing.Size(127, 13);
             this.lbtii4.TabIndex = 4;
-            this.lbtii4.Text = "TIPO DE VEHICULO";
+            this.lbtii4.Text = "TIPO DE VEHICULO:";
             // 
             // lbtii5
             // 
@@ -469,6 +528,7 @@ namespace Parqueadero
             this.lbtii3.Size = new System.Drawing.Size(94, 13);
             this.lbtii3.TabIndex = 2;
             this.lbtii3.Text = "HORA SALIDA:";
+            this.lbtii3.Visible = false;
             // 
             // lbtii2
             // 
@@ -492,97 +552,26 @@ namespace Parqueadero
             this.lbtii1.TabIndex = 0;
             this.lbtii1.Text = "PLACA:";
             // 
-            // lbsalpla
+            // lbhor
             // 
-            this.lbsalpla.AutoSize = true;
-            this.lbsalpla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbsalpla.Location = new System.Drawing.Point(136, 9);
-            this.lbsalpla.Name = "lbsalpla";
-            this.lbsalpla.Size = new System.Drawing.Size(0, 13);
-            this.lbsalpla.TabIndex = 5;
-            // 
-            // lbsalhoring
-            // 
-            this.lbsalhoring.AutoSize = true;
-            this.lbsalhoring.Location = new System.Drawing.Point(136, 48);
-            this.lbsalhoring.Name = "lbsalhoring";
-            this.lbsalhoring.Size = new System.Drawing.Size(0, 13);
-            this.lbsalhoring.TabIndex = 6;
-            // 
-            // lbsalhorsal
-            // 
-            this.lbsalhorsal.AutoSize = true;
-            this.lbsalhorsal.Location = new System.Drawing.Point(136, 62);
-            this.lbsalhorsal.Name = "lbsalhorsal";
-            this.lbsalhorsal.Size = new System.Drawing.Size(0, 13);
-            this.lbsalhorsal.TabIndex = 7;
-            // 
-            // lbsaltipveh
-            // 
-            this.lbsaltipveh.AutoSize = true;
-            this.lbsaltipveh.Location = new System.Drawing.Point(136, 22);
-            this.lbsaltipveh.Name = "lbsaltipveh";
-            this.lbsaltipveh.Size = new System.Drawing.Size(0, 13);
-            this.lbsaltipveh.TabIndex = 8;
-            // 
-            // lbsaltar
-            // 
-            this.lbsaltar.AutoSize = true;
-            this.lbsaltar.Location = new System.Drawing.Point(136, 88);
-            this.lbsaltar.Name = "lbsaltar";
-            this.lbsaltar.Size = new System.Drawing.Size(0, 13);
-            this.lbsaltar.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(5, 75);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "TIEMPO ACTUAL:";
-            // 
-            // lbsaltiemp
-            // 
-            this.lbsaltiemp.AutoSize = true;
-            this.lbsaltiemp.Location = new System.Drawing.Point(136, 75);
-            this.lbsaltiemp.Name = "lbsaltiemp";
-            this.lbsaltiemp.Size = new System.Drawing.Size(0, 13);
-            this.lbsaltiemp.TabIndex = 11;
-            // 
-            // lbsaltiping
-            // 
-            this.lbsaltiping.AutoSize = true;
-            this.lbsaltiping.Location = new System.Drawing.Point(136, 35);
-            this.lbsaltiping.Name = "lbsaltiping";
-            this.lbsaltiping.Size = new System.Drawing.Size(0, 13);
-            this.lbsaltiping.TabIndex = 13;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 35);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "TIPO DE INGRESO";
+            this.lbhor.AutoSize = true;
+            this.lbhor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbhor.Location = new System.Drawing.Point(458, 32);
+            this.lbhor.Name = "lbhor";
+            this.lbhor.Size = new System.Drawing.Size(48, 17);
+            this.lbhor.TabIndex = 9;
+            this.lbhor.Text = "Hora:";
             // 
             // MainW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 422);
+            this.Controls.Add(this.lbhor);
             this.Controls.Add(this.gbinf);
             this.Controls.Add(this.dgsal);
             this.Controls.Add(this.pnlIn);
-            this.Controls.Add(this.btTime);
             this.Controls.Add(this.lbdate);
-            this.Controls.Add(this.btEx);
-            this.Controls.Add(this.btIn);
             this.Controls.Add(this.lbtit);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -609,10 +598,8 @@ namespace Parqueadero
 
         private System.Windows.Forms.Label lbtit;
         private System.Windows.Forms.Button btIn;
-        private System.Windows.Forms.Button btEx;
         private System.Windows.Forms.Label lbdate;
         private System.Windows.Forms.Timer tmtime;
-        private System.Windows.Forms.Button btTime;
         private System.Windows.Forms.Panel pnlIn;
         private System.Windows.Forms.Label lbCasc;
         private System.Windows.Forms.Label lbPlaca;
@@ -652,6 +639,7 @@ namespace Parqueadero
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbsaltiping;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbhor;
     }
 }
 

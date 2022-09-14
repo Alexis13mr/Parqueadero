@@ -55,6 +55,30 @@ namespace Parqueadero.CDatos
             con.desconectar();
             return dt;
         }
+        public int tarifaind(string tiping, string tipveh)
+        {
+            int valorind;
+            
+            comnd.Connection = con.conectar();
+            comnd.CommandText = "Tarifa_Ingreso";
+            comnd.CommandType = CommandType.StoredProcedure;
+            comnd.Parameters.AddWithValue("@tipveh", tipveh);
+            comnd.Parameters.AddWithValue("@tiping", tiping);
+            SqlDataReader dr = comnd.ExecuteReader();
+            if (dr.Read())
+            {
+                valorind = int.Parse(dr["valor"].ToString());
+                comnd.Parameters.Clear();
+                con.desconectar();
+                return valorind;
+            }
+            else
+            {
+                comnd.Parameters.Clear();
+                con.desconectar();
+                return 0;
+            }            
+        }
 
     }    
 }

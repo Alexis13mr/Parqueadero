@@ -21,6 +21,7 @@ namespace Parqueadero
             actgrid();
         }
         CDatos.Datos da = new CDatos.Datos();
+        CNeg.cNeg dat = new CNeg.cNeg();
 
         private void MainW_Load(object sender, EventArgs e)
         {            
@@ -35,22 +36,7 @@ namespace Parqueadero
             }
         }
 
-        private void btTime_Click(object sender, EventArgs e)
-        {
-            if (lbdate.Visible==false)
-            {
-                lbdate.Visible = true;
-                tmtime.Enabled = true;
-                btTime.Text = "Ocultar hora";
-            }
-            else
-            {
-                lbdate.Visible = false;
-                tmtime.Enabled = false;
-                btTime.Text = "Mostrar hora";
-            }
-            
-        }
+        
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -59,29 +45,21 @@ namespace Parqueadero
 
         private void btIn_Click(object sender, EventArgs e)
         {
-            if (pnlIn.Visible)
-            {
-                pnlIn.Visible = false;
-                cleanpnl();
-            }
-            else
-            {
-                pnlIn.Visible = true;
-            }
+            cleanpnl();
         }
 
         private void rbmot_CheckedChanged(object sender, EventArgs e)
         {
-            if (lbCasc.Enabled)
-            {
-                lbCasc.Enabled = false;
-                cbcsc.Enabled = false;                
-            }
-            else
-            {
-                lbCasc.Enabled = true;
-                cbcsc.Enabled = true;
-            }
+            //if (lbCasc.Enabled)
+            //{
+            //    lbCasc.Enabled = false;
+            //    cbcsc.Enabled = false;                
+            //}
+            //else
+            //{
+            //    lbCasc.Enabled = true;
+            //    cbcsc.Enabled = true;
+            //}
         }
 
         private void btingr_Click(object sender, EventArgs e)
@@ -108,7 +86,6 @@ namespace Parqueadero
                 actgrid();
             }
         }
-
         private void cleanpnl()
         {
             txplac.Text = "";
@@ -151,26 +128,41 @@ namespace Parqueadero
                 lbsaltiping.Text = datos.Rows[0][3].ToString();
                 
                 t = DateTime.Now - Convert.ToDateTime(lbsalhoring.Text);
-                calcti(lbsaltiping.Text);
+                calcti(lbsaltiping.Text, lbsaltipveh.Text);
                 //if (lbsaltiping.Text=="HORA")
                 //{
                 //    lbsaltiemp.Text =(Convert.ToInt32(t.TotalSeconds)).ToString();
-                    
+
                 //}
                 //MessageBox.Show("El vehiculo con placa " + txplac.Text.ToUpper() + " lleva " + hour +, "Aviso");
             }
-        }
-        private void calcti(string tipo)
-        {
-
-            if (tipo=="HORA")
+            else
             {
+                MessageBox.Show("Ingrese una placa válida.", "Error");
+            }
+        }
+        private void calcti(string tipoi, string tipov)
+        {
+            int tarifa;
+            tarifa = dat.Tarifaing(tipoi, tipov);
+            if (tipoi=="HORA")
+            {             
                 hora = Convert.ToInt32(t.TotalSeconds) / 3600;
                 lbsaltiemp.Text = hora.ToString()+" horas";
                 if (hora==0)
                 {
-                    lbsaltar.Text = "1000$";
-                }else lbsaltar.Text = (hora * 1000).ToString() + "$";
+                    lbsaltar.Text = tarifa +"$";
+                }else lbsaltar.Text = (hora *tarifa).ToString() + "$";
+            }
+            else if (tipoi == "DÍA")
+            {
+                dia = Convert.ToInt32(t.TotalSeconds) / 86400;
+                lbsaltiemp.Text = dia.ToString() + " días";
+                if (dia == 0)
+                {
+                    lbsaltar.Text = tarifa + "$";
+                }
+                else lbsaltar.Text = (dia * tarifa).ToString() + "$";
             }
         }
         private void actgrid()
